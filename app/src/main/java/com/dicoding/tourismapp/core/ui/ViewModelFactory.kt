@@ -19,27 +19,19 @@ class ViewModelFactory private constructor(private val tourismRepository: Touris
         fun getInstance(context: Context): ViewModelFactory =
             instance
                 ?: synchronized(this) {
-                instance
-                    ?: ViewModelFactory(
-                        Injection.provideRepository(
-                            context
-                        )
-                    )
-            }
+                    instance ?: ViewModelFactory(Injection.provideRepository(context))
+                }
     }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         when {
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+            modelClass.isAssignableFrom(HomeViewModel::class.java) ->
                 HomeViewModel(tourismRepository) as T
-            }
-            modelClass.isAssignableFrom(FavoriteViewModel::class.java) -> {
+            modelClass.isAssignableFrom(FavoriteViewModel::class.java) ->
                 FavoriteViewModel(tourismRepository) as T
-            }
-            modelClass.isAssignableFrom(DetailTourismViewModel::class.java) -> {
+            modelClass.isAssignableFrom(DetailTourismViewModel::class.java) ->
                 DetailTourismViewModel(tourismRepository) as T
-            }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
 }
