@@ -1,9 +1,9 @@
 package com.dicoding.tourismapp
 
 import android.app.Application
-import com.dicoding.tourismapp.core.di.databaseModule
-import com.dicoding.tourismapp.core.di.networkModule
-import com.dicoding.tourismapp.core.di.repositoryModule
+import com.anggastudio.tourismapp.core.di.databaseModule
+import com.anggastudio.tourismapp.core.di.networkModule
+import com.anggastudio.tourismapp.core.di.repositoryModule
 import com.dicoding.tourismapp.di.useCaseModule
 import com.dicoding.tourismapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
